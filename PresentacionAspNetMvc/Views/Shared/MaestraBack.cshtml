@@ -1,0 +1,89 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta charset="utf-8" />
+    <!--<meta name="viewport" content="width=device-width, initial-scale=1.0">-->
+    <title>@ViewBag.Title - CopyPasteShopssssss</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+    <link rel="stylesheet" href="~/Content/tienda.css" />
+</head>
+<body class="container-fluid">
+    <h1>Backend</h1>
+    <nav class="navbar navbar-default navbar-inverse">
+        <div class="container-fluid">
+           
+
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <form class="navbar-form navbar-right">
+                    @Html.ActionLink("Mostrar Usuarios", "Index", "BackUsuarios") ||
+                    @Html.ActionLink("Mostrar Productos", "Index", "BackProducto")||
+                    @Html.ActionLink("Agregar Usuario", "Index", "BackAgregarUsuario")||
+                    @Html.ActionLink("Agregar Producto", "Index", "BackAgregarProducto")
+                </form>
+
+                
+            </div><!-- /.navbar-collapse -->
+        </div><!-- /.container-fluid -->
+    </nav>
+
+    <div class="row">
+        <div class="col-sm-2">
+            <div class="sidebar-nav">
+                
+            </div>
+        </div>
+        <div class="col-sm-10">
+            @RenderBody()
+
+            <section class="row">
+                <h2>Login</h2>
+                <div id="login" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+                    <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                            <form action="/Usuarios/Login" class="form-horizontal" method="post">
+                                <div class="modal-header">
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                    <h4 class="modal-title" id="myModalLabel">Login</h4>
+                                </div>
+                                <div class="modal-body">
+                                    <!--<form class="form-horizontal col-xs-12 col-sm-offset-3 col-sm-6 col-lg-offset-4 col-lg-4 thumbnail">-->
+
+                                    <div class="form-group">
+                                        <label for="usuarioLogin" class="col-sm-3 control-label">Usuario</label>
+                                        <div class="col-sm-9">
+                                            <input type="text" class="form-control" id="usuarioLogin" name="nick" placeholder="Usuario">
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="passwordLogin" class="col-sm-3 control-label">Contraseña</label>
+                                        <div class="col-sm-9">
+                                            <input type="password" class="form-control" id="passwordLogin" name="password" placeholder="Contraseña">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="modal-footer">
+                                    <div class="btn-group">
+                                        <a class="btn btn-default" href="#" data-toggle="modal" data-target="#apuntarse">Apuntarse</a>
+                                        <button type="submit" class="btn btn-primary">Login</button>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+
+                    </div>
+                </div>
+            </section>
+
+        </div>
+    </div>
+
+    
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", required: false)
+</body>
+</html>

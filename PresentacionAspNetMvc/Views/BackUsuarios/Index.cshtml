@@ -1,0 +1,49 @@
+﻿@{ Layout = "~/Views/Shared/MaestraBack.cshtml";}
+@model IEnumerable<TiendaVirtual.Entidades.IUsuario>
+@{
+    ViewBag.Title = "Backend";
+}
+
+<section >
+    <h3></h3>
+    <table >
+        <thead>
+            <tr>
+               Mostrar Usuarios:
+            </tr>
+        </thead>
+        <tbody>
+
+            @foreach (var item in Model)
+            {
+                
+                  <tr>  <td>  </td>   <td>                  
+                   
+                       
+                        @Html.DisplayFor(Model => item.Id)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(Model => item.Nick)
+                       @*  @Html.DisplayFor(modelItem => item.Nick) *@
+                    </td>
+                    <td>
+                        @Html.DisplayFor(Model => item.Password)
+                    @*    @Html.DisplayFor(modelItem => item.Password) *@
+                        </td>
+                    <td>
+                        <a href='@Url.Action("Index", "BackModificarUsuario", new { Id = item.Id})'>Modificar</a>
+                        <a href='@Url.Action("Eliminar", "BackModificarUsuario", new { Id = item.Id})'>Eliminar</a>
+  
+
+                                            </td></tr>
+
+                 
+                }  
+
+            </tbody>
+            <tfoot>
+
+            </tfoot>
+        </table>
+    </section>
+
