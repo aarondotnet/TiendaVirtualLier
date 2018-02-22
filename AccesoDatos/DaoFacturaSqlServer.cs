@@ -11,7 +11,7 @@ namespace TiendaVirtual.AccesoDatos
     class DaoFacturaSqlServer : IDaoFactura
     {
         private const string SQL_INSERT = "INSERT INTO facturas (Numero, Fecha,UsuariosId) VALUES ((select count(*) from facturas),@fecha,@UsuariosId)";
-
+        private const string SQL_INSERT2 = "INSERT INTO lineasfactura (FacturaId,ProductoId,Cantidad) VALUES (@FacturaID, @ProductoId, @Cantidad)";
 
         private string connectionString;
         public DaoFacturaSqlServer(string connectionString)
@@ -67,6 +67,7 @@ namespace TiendaVirtual.AccesoDatos
             {
                 throw new AccesoDatosException("No se ha podido realizar el alta", e);
             }
+            
         }
     }
 }
