@@ -15,10 +15,12 @@ namespace PresentacionAspNetMvc.Controllers
 
         public ActionResult MFactura()
         {
+            
             ICarrito carrito = (ICarrito)HttpContext.Session["carrito"];
-            //ILogicaNegocio ln = new LogicaNegocio();
+            //ILogicaNegocio ln = new LogicaNegocio(); //Si crear nuevo objeto entra en constructor vacio de lineaNegocio y no debe
             ILogicaNegocio ln = (ILogicaNegocio)HttpContext.Application["logicaNegocio"];
-            IFactura f = ln.FacturarCarrito(carrito);
+            if (carrito.Usuario == null) { return RedirectToAction("Index", "Productos"); } //orde: medoto Controlador }
+            IFactura f = ln.FacturarCarrito(carrito);           
             return View("Index", f);
         }
     }
